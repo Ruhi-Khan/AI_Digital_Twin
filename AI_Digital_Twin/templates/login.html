@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>AI Digital Twin | Login</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/css/style.css"
+    >
+
+</head>
+
+<body class="login-body">
+
+    <div class="login-background">
+
+        <div class="grid-overlay"></div>
+
+        <div class="login-card">
+
+            <div class="brand-mark">
+                <span class="brand-icon">◈</span>
+            </div>
+
+            <p class="eyebrow">
+                INTERNET INTELLIGENCE PLATFORM
+            </p>
+
+            <h1>
+                AI Digital Twin
+            </h1>
+
+            <p class="login-description">
+                Observe internet technology, hiring,
+                AI tools, startups and cyber signals
+                through one intelligent dashboard.
+            </p>
+
+            <form id="loginForm">
+
+                <label>
+                    Username
+                </label>
+
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Enter username"
+                    autocomplete="username"
+                    required
+                >
+
+                <label>
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter password"
+                    autocomplete="current-password"
+                    required
+                >
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                    id="loginButton"
+                >
+                    Enter Digital Twin
+                    <span>→</span>
+                </button>
+
+                <div
+                    id="loginError"
+                    class="login-error"
+                ></div>
+
+            </form>
+
+            <div class="demo-login">
+
+                <div class="demo-title">
+                    Demo Access
+                </div>
+
+                <div class="demo-row">
+                    <span>Owner</span>
+                    <code>ruhi / ruhi123</code>
+                </div>
+
+                <div class="demo-row">
+                    <span>Analyst</span>
+                    <code>aarav / demo123</code>
+                </div>
+
+                <div class="demo-row">
+                    <span>Researcher</span>
+                    <code>priya / demo123</code>
+                </div>
+
+            </div>
+
+            <p class="login-footer">
+                Academic Mini Project • Internet Intelligence Simulation
+            </p>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        const loginForm = document.getElementById("loginForm");
+        const loginError = document.getElementById("loginError");
+        const loginButton = document.getElementById("loginButton");
+
+        loginForm.addEventListener("submit", async function(event) {
+
+            event.preventDefault();
+
+            loginError.textContent = "";
+
+            loginButton.disabled = true;
+            loginButton.innerHTML = "Connecting...";
+
+            const username =
+                document.getElementById("username").value.trim();
+
+            const password =
+                document.getElementById("password").value;
+
+            try {
+
+                const response = await fetch("/api/login", {
+
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        username: username,
+                        password: password
+                    })
+
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        data.detail || "Login failed."
+                    );
+
+                }
+
+                window.location.href = data.redirect;
+
+            } catch (error) {
+
+                loginError.textContent =
+                    error.message;
+
+                loginButton.disabled = false;
+
+                loginButton.innerHTML =
+                    'Enter Digital Twin <span>→</span>';
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        AI Digital Twin | Dashboard
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/static/css/style.css"
+    >
+
+</head>
+
+<body>
+
+<div class="app-shell">
+
+    <!-- ======================================================
+         SIDEBAR
+    ======================================================= -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-mark small">
+                ◈
+            </div>
+
+            <div>
+
+                <div class="brand-name">
+                    DIGITAL TWIN
+                </div>
+
+                <div class="brand-subtitle">
+                    OF THE INTERNET
+                </div>
+
+            </div>
+
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <button
+                class="nav-item active"
+                data-section="overview"
+            >
+                <span>◉</span>
+                Overview
+            </button>
+
+            <button
+                class="nav-item"
+                data-section="technologies"
+            >
+                <span>⌁</span>
+                Technology Trends
+            </button>
+
+            <button
+                class="nav-item"
+                data-section="hiring"
+            >
+                <span>▣</span>
+                Hiring Signals
+            </button>
+
+            <button
+                class="nav-item"
+                data-section="ai-tools"
+            >
+                <span>✦</span>
+                AI Tools
+            </button>
+
+            <button
+                class="nav-item"
+                data-section="threats"
+            >
+                <span>◈</span>
+                Cyber Threats
+            </button>
+
+            <button
+                class="nav-item"
+                data-section="startups"
+            >
+                <span>↗</span>
+                Startup Radar
+            </button>
+
+            <button
+                class="nav-item"
+                data-section="leaderboard"
+            >
+                <span>♛</span>
+                Leaderboard
+            </button>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="system-status">
+
+                <span class="status-dot"></span>
+
+                <div>
+
+                    <strong>
+                        Twin Online
+                    </strong>
+
+                    <small>
+                        Simulation active
+                    </small>
+
+                </div>
+
+            </div>
+
+            <button
+                class="logout-button"
+                id="logoutButton"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ======================================================
+         MAIN CONTENT
+    ======================================================= -->
+
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <p class="topbar-label">
+                    INTERNET INTELLIGENCE
+                </p>
+
+                <h2 id="pageTitle">
+                    Overview
+                </h2>
+
+            </div>
+
+            <div class="topbar-right">
+
+                <div class="search-box">
+
+                    <span>⌕</span>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search technologies, companies..."
+                    >
+
+                </div>
+
+                <div class="user-chip">
+
+                    <div
+                        class="user-avatar"
+                        id="userAvatar"
+                    >
+                        R
+                    </div>
+
+                    <div>
+
+                        <strong id="userName">
+                            User
+                        </strong>
+
+                        <small id="userRole">
+                            Owner
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- SEARCH RESULTS -->
+
+        <div
+            id="searchResults"
+            class="search-results hidden"
+        ></div>
+
+
+        <!-- ==================================================
+             OVERVIEW
+        =================================================== -->
+
+        <section
+            id="section-overview"
+            class="dashboard-section active-section"
+        >
+
+            <div class="hero-panel">
+
+                <div class="hero-content">
+
+                    <div class="live-pill">
+
+                        <span class="status-dot"></span>
+
+                        LIVE SIMULATION
+
+                    </div>
+
+                    <h1>
+                        See the internet<br>
+                        as a <span>living system.</span>
+                    </h1>
+
+                    <p>
+                        The AI Digital Twin collects simulated
+                        digital signals and converts them into
+                        meaningful intelligence about technology,
+                        hiring, AI, cybersecurity and startups.
+                    </p>
+
+                </div>
+
+                <div class="hero-visual">
+
+                    <div class="orbit orbit-one"></div>
+
+                    <div class="orbit orbit-two"></div>
+
+                    <div class="orbit orbit-three"></div>
+
+                    <div class="core-node">
+                        AI
+                    </div>
+
+                    <div class="orbit-node node-one">
+                        PY
+                    </div>
+
+                    <div class="orbit-node node-two">
+                        AI
+                    </div>
+
+                    <div class="orbit-node node-three">
+                        CY
+                    </div>
+
+                    <div class="orbit-node node-four">
+                        ☁
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- STAT CARDS -->
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+                        ◈
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Digital Signals
+                        </span>
+
+                        <strong>
+                            12,480
+                        </strong>
+
+                        <small class="positive">
+                            +18.4% this week
+                        </small>
+
+                    </div>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        ⌁
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Technologies
+                        </span>
+
+                        <strong id="technologyCount">
+                            --
+                        </strong>
+
+                        <small>
+                            tracked signals
+                        </small>
+
+                    </div>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        ▣
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Hiring Signals
+                        </span>
+
+                        <strong id="hiringCount">
+                            --
+                        </strong>
+
+                        <small class="positive">
+                            demand rising
+                        </small>
+
+                    </div>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        !
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Threat Signals
+                        </span>
+
+                        <strong id="threatCount">
+                            --
+                        </strong>
+
+                        <small class="warning">
+                            monitor closely
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- OVERVIEW GRID -->
+
+            <div class="content-grid two-column">
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <p class="panel-kicker">
+                                SIGNAL ANALYSIS
+                            </p>
+
+                            <h3>
+                                Technology Growth
+                            </h3>
+
+                        </div>
+
+                        <span class="panel-badge">
+                            SIMULATED
+                        </span>
+
+                    </div>
+
+                    <div
+                        id="technologyChart"
+                        class="bar-chart"
+                    ></div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <p class="panel-kicker">
+                                ACTIVITY STREAM
+                            </p>
+
+                            <h3>
+                                Digital Twin Activity
+                            </h3>
+
+                        </div>
+
+                        <span class="live-text">
+                            ● LIVE
+                        </span>
+
+                    </div>
+
+                    <div
+                        id="activityList"
+                        class="activity-list"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content-grid two-column">
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <p class="panel-kicker">
+                                TOP SIGNALS
+                            </p>
+
+                            <h3>
+                                Fastest Growing Technologies
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+                    <div
+                        id="topTechnologyList"
+                        class="signal-list"
+                    ></div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <p class="panel-kicker">
+                                SECURITY LAYER
+                            </p>
+
+                            <h3>
+                                Security Watch
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+                    <div
+                        id="securityList"
+                        class="security-list"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             TECHNOLOGIES
+        =================================================== -->
+
+        <section
+            id="section-technologies"
+            class="dashboard-section"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="topbar-label">
+                        SIGNAL LAYER
+                    </p>
+
+                    <h1>
+                        Technology Trends
+                    </h1>
+
+                    <p>
+                        Track technologies that are gaining
+                        popularity across the simulated internet.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div
+                id="technologyCards"
+                class="technology-grid"
+            ></div>
+
+        </section>
+
+
+        <!-- ==================================================
+             HIRING
+        =================================================== -->
+
+        <section
+            id="section-hiring"
+            class="dashboard-section"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="topbar-label">
+                        EMPLOYMENT SIGNALS
+                    </p>
+
+                    <h1>
+                        Hiring Signals
+                    </h1>
+
+                    <p>
+                        Simulated hiring activity from major
+                        technology companies.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="panel table-panel">
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Company</th>
+                                <th>Sector</th>
+                                <th>Openings</th>
+                                <th>Growth</th>
+                                <th>Signal</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody
+                            id="hiringTable"
+                        ></tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             AI TOOLS
+        =================================================== -->
+
+        <section
+            id="section-ai-tools"
+            class="dashboard-section"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="topbar-label">
+                        ARTIFICIAL INTELLIGENCE
+                    </p>
+
+                    <h1>
+                        AI Tools
+                    </h1>
+
+                    <p>
+                        Monitor popularity and weekly movement
+                        of major AI tools.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div
+                id="aiToolsGrid"
+                class="ai-tools-grid"
+            ></div>
+
+        </section>
+
+
+        <!-- ==================================================
+             THREATS
+        =================================================== -->
+
+        <section
+            id="section-threats"
+            class="dashboard-section"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="topbar-label">
+                        SECURITY INTELLIGENCE
+                    </p>
+
+                    <h1>
+                        Cyber Threat Monitor
+                    </h1>
+
+                    <p>
+                        Simulated security signals detected
+                        across the digital environment.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div
+                id="threatGrid"
+                class="threat-grid"
+            ></div>
+
+        </section>
+
+
+        <!-- ==================================================
+             STARTUPS
+        =================================================== -->
+
+        <section
+            id="section-startups"
+            class="dashboard-section"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="topbar-label">
+                        INNOVATION LAYER
+                    </p>
+
+                    <h1>
+                        Startup Radar
+                    </h1>
+
+                    <p>
+                        Monitor startup activity and momentum
+                        inside the simulated internet ecosystem.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div
+                id="startupGrid"
+                class="startup-grid"
+            ></div>
+
+        </section>
+
+
+        <!-- ==================================================
+             LEADERBOARD
+        =================================================== -->
+
+        <section
+            id="section-leaderboard"
+            class="dashboard-section"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="topbar-label">
+                        COMMUNITY SIGNAL
+                    </p>
+
+                    <h1>
+                        Digital Twin Leaderboard
+                    </h1>
+
+                    <p>
+                        Demo users ranked by their Digital Twin
+                        activity points.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="panel leaderboard-panel">
+
+                <div
+                    id="leaderboard"
+                    class="leaderboard"
+                ></div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="/static/js/dashboard.js"></script>
+
+</body>
+
+</html>
